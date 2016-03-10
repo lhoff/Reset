@@ -1,0 +1,131 @@
+//started with eric meyer's reset...
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, cite, code,
+em, img, small, strike, strong, sub, sup, 
+b, u, i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, main, nav, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+// HTML5 display-role reset for older browsers
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section ,
+details, main, summary {
+	display: block;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a, 
+a:hover, 
+a:visited, 
+a:active {
+	text-decoration: none;
+}
+a {
+	color: $primary;
+	&:hover {
+		color: $primary;
+		text-decoration: underline;
+	}
+}
+body {
+	line-height: 1.5;
+	font-size: 100%;
+	color: $black;
+	font-family: $source;
+	background-color: $white;
+}
+img {
+	max-width: 100%;
+}
+.wrapper {
+	width: 75.949367088607594936708860759494%; /* 960px/1280px */
+	margin: 0 auto;
+	@include respond-to(tablet-portrait) {
+		width: 85%;
+	}
+	@include respond-to(phone-landscape) {
+		width: 90%;
+	}
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: $source;
+	line-height: 1.4;
+	font-weight: 700;
+}
+h1 {
+	font-size: 3.5em;
+}
+h2 {
+	font-size: 2.25em;
+}
+h3 {
+	font-size: 1.5em;
+}
+p {
+	font-size: 1.25em;
+}
+@include respond-to(phone-landscape) {
+	h1 {
+		font-size: 2.5em;
+	}
+	h2 {
+		font-size: 1.35em;
+	}
+	h3 {
+		font-size: 1.15em;
+	}
+	h4 {
+		font-size: 1em;
+		font-weight: normal;
+	}
+	p {
+		font-size: 1em;
+	}
+}
+.float-left {
+	float: left;
+}
+.float-right {
+	float: right;
+}
+//if an Angular 1 project
+[ng\:cloak], [ng-cloak], [data-ng-cloak],[x-ng-cloak], .ng-cloak, .x-ng-cloak {
+	diaply: none;
+}
+//clear fix
+.clearfix:before,
+.clearfix:after {
+    content: " "; 
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    *zoom: 1;
+}
+
