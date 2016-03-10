@@ -1,0 +1,133 @@
+@mixin calc($percent, $pixels, $oldie) {
+	width: $oldie; //older browsers (IE8 and down)
+	width: -webkit-calc(#{$percent} - #{$pixels}); // Safari 6, Chrome 19-25
+	width: -moz-calc(#{$percent} - #{$pixels}); // FF 4-15
+	width: calc(#{$percent} - #{$pixels}); // FF 16+, IE 9+, Opera 15, Chrome 26+, Safari 7 and future other browsers
+}
+@mixin transition($duration: .15s, $properties: all, $timing: linear) {
+	-webkit-transition: $duration $properties $timing;
+	-moz-transition: $duration $properties $timing;
+	-ms-transition: $duration $properties $timing;
+	-o-transition: $duration $properties $timing;
+	transition: $duration $properties $timing;
+}
+@mixin translate($distanceX, $distanceY) {
+	-webkit-transform: translate($distanceX, $distanceY);
+	-moz-transform: translate($distanceX, $distanceY);
+	-ms-transform: translate($distanceX, $distanceY);
+	-o-transform: translate($distanceX, $distanceY);
+	transform: translate($distanceX, $distanceY);
+}
+@mixin translateX($distance) {
+	-webkit-transform: translateX($distance);
+	-moz-transform: translateX($distance);
+	-ms-transform: translateX($distance);
+	-o-transform: translateX($distance);
+	transform: translateX($distance);
+}
+@mixin translateY($distance) {
+	-webkit-transform: translateY($distance);
+	-moz-transform: translateY($distance);
+	-ms-transform: translateY($distance);
+	-o-transform: translateY($distance);
+	transform: translateY($distance);
+}
+@mixin rotate($deg) {
+	-webkit-transform: rotate($deg);
+	-moz-transform: rotate($deg);
+	-ms-transform: rotate($deg);
+	transform: rotate($deg);
+}
+@mixin scale($size) {
+	-webkit-transform: scale($size);
+	-moz-transform: scale($size);
+	-ms-transform: scale($size);
+	transform: scale($size);
+}
+@mixin translateRotate($distanceX, $distanceY, $deg) {
+	-webkit-transform: translate($distanceX, $distanceY) rotate($deg);
+	-moz-transform: translate($distanceX, $distanceY) rotate($deg);
+	-ms-transform: translate($distanceX, $distanceY) rotate($deg);
+	-o-transform: translate($distanceX, $distanceY) rotate($deg);
+	transform: translate($distanceX, $distanceY) rotate($deg);
+}
+@mixin box-sizing {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+}
+@mixin no-touchy {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+@mixin column-count($cols) {
+	-webkit-column-count: $cols;
+	-moz-column-count: $cols;
+	column-count: $cols;
+}
+
+
+//media queries
+$tablet-landscape: 1100px;
+$tablet-portrait: 850px;
+$phone-landscape: 600px;
+$phone-portrait: 400px;
+
+
+//Responsive Media Queries
+@mixin respond-to($media) {
+  @if $media == tablet-landscape {
+    @media screen and (max-width: $tablet-landscape) { @content; }
+  }
+  @if $media == tablet-portrait {
+    @media screen and (max-width: $tablet-portrait) { @content; }
+  }
+  @if $media == phone-landscape {
+    @media screen and (max-width: $phone-landscape) { @content; }
+  }
+  @if $media == phone-portrait {
+    @media screen and (max-width: $phone-portrait) { @content; }
+  }
+}
+//animation
+@mixin animation($name, $duration: .25s, $timing-function: linear, $iteration-count: 1, $delay: 0s, $direction: normal, $fill-mode: both) {
+	-webkit-animation-name: $name;
+	-webkit-animation-duration: $duration;
+	-webkit-animation-timing-function: $timing-function;
+	-webkit-animation-iteration-count: $iteration-count;
+	-webkit-animation-direction: $direction; //alternate/reverse
+	-webkit-animation-fill-mode: $fill-mode; //none	
+	-webkit-animation-delay: $delay; //0
+	-moz-animation-name: $name;
+	-moz-animation-duration: $duration;
+	-moz-animation-timing-function: $timing-function;
+	-moz-animation-iteration-count: $iteration-count;
+	-moz-animation-direction: $direction; //alternate/reverse
+	-moz-animation-fill-mode: $fill-mode; //none
+	-moz-animation-delay: $delay; //0	
+	-o-animation-name: $name;
+	-o-animation-duration: $duration;
+	-o-animation-timing-function: $timing-function;
+	-o-animation-iteration-count: $iteration-count;
+	-o-animation-direction: $direction; //alternate/reverse
+	-o-animation-fill-mode: $fill-mode; //none	
+	-o-animation-delay: $delay; //0
+	animation-name: $name;
+	animation-duration: $duration;
+	animation-timing-function: $timing-function;
+	animation-iteration-count: $iteration-count;
+	animation-direction: $direction; //alternate/reverse
+	animation-fill-mode: $fill-mode; //none	
+}
